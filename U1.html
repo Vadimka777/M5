@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: rgb(251, 255, 0);
+      font-size: 25px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    a {
+      margin: 30px;
+    }
+    #burger {
+      display: none;
+    }
+    @media screen and (max-width: 720px) {
+      header {
+        font-size: 20px;
+        padding: 5px;
+        position: relative;
+      }
+      #burger {
+        display: block;
+      }
+      #menu {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(251, 255, 0);
+        transition: right 0.5s;
+        border-radius: 0 0 0 10px;
+      }
+      a {
+        margin: 5px 10px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <i class="fad fa-list-music"></i>
+      <nav id="menu">
+        <a>Главное</a>
+        <a>Избранное</a>
+        <a>Для вас</a>
+        <a>Новинки</a>
+      </nav>
+      <i class="far fa-bars" id="burger"></i>
+    </header>
+  </body>
+  <script>
+    let burger = document.getElementById("burger")
+    let menu = document.getElementById("menu")
+    let i = 0
+    function open() {
+        i++
+        if (i%2 == 0) {
+            menu.style.right = "-100%"
+        }
+        else {
+            menu.style.right = "0%"
+        }
+    } 
+    burger.addEventListener("click", open)
+  </script>
+</html>
